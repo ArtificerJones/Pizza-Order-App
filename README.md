@@ -5,7 +5,7 @@ from tkinter import *
 root = Tk()
 root.title("Tempurature conversion")
 
-# entry box , Not sure how to make sure user enters a float.
+# entry box
 e = Entry(root, width = 30)
 e.pack()
 
