@@ -1,0 +1,59 @@
+from tkinter import *
+win = Tk()
+var = IntVar()
+win.title("Peter's Pizza Palace")
+win.geometry("640x480")
+win.configure(bg="black")
+
+label = Label(win, text="Peter's Pizza Palace", font=("Arial", 35), bg="grey", fg="black")
+label.grid(row=0, column=0, columnspan=4, padx=30, pady=20)
+label10 = Label(win, text="Choose your Size", font=("Arial", 20), bg="black", fg="White")
+label10.grid(row=1, column=0, ipadx=20, ipady=10, padx=10, pady=10)
+
+small = 12.00
+medium = 15.00
+large = 18.00
+
+v_list=[]
+
+r = IntVar()
+r.set(2)
+sizes = ["Small", "Medium", "Large"]
+size = StringVar()
+size.set("Small")
+
+
+
+
+
+def nextt():
+    global v_list
+    v_list = v_list[-1:]
+    print(v_list)
+    
+
+
+def click(value):
+    v_list.append(value)
+    size()
+    
+
+
+for i in range(len(sizes)):
+    Radiobutton(win, text=sizes[i], variable=size, width=10, height=3, bg="green", value=sizes[i],
+                activebackground="red", anchor=W, command=lambda: click(size.get())).grid(row=i + 2, column=0, padx=10,
+                                                                                          pady=10, sticky="w")
+
+
+
+def size(): 
+    size = str(input("enter size"))
+    if (size == small):
+        pass          
+    elif (size == medium):
+        print("cost is $15.00 ")  
+    elif (size == large):
+        print("cost is $18.00 ")
+        
+win.mainloop()
+    
